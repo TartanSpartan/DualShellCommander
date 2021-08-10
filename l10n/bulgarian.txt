@@ -1,4 +1,4 @@
-# VitaShell language file
+# DualShellCommander language file
 
 ERROR                                = "Грешка 0x%08X."
 OK                                   = "OK"
@@ -35,4 +35,4 @@ WIFI_ERROR                           = "Нужен е Wi-Fi за да напра
 FTP_SERVER                           = "Изпълнява се FTP сървър на \ftp://%s:%i\\Натиснете 'OK' за да премине във фонов режим.\Натиснете 'Отказ' за прекъсване."
 SYS_INFO                             = "Системен софтуер: %s\Модел: 0x%08X\MAC адрес: %s\IP адрес: %s\Мемори карта: %s/%s"
 INSTALL_ALL                          = "Инсталирай всички"
-UPDATE_QUESTION                      = "VitaShell %s е достъпна.\\Искате ли да обновите приложението?"
+UPDATE_QUESTION                      = "DualShellCommander %s е достъпна.\\Искате ли да обновите приложението?"

@@ -1,4 +1,4 @@
-# VitaShell language file
+# DualShellCommander language file
 
 # General strings
 ERROR                                = "Fejl 0x%08X."
@@ -144,24 +144,24 @@ HENKAKU_RESTORE_DEFAULT_MESSAGE      = "Standard indstillinger er blevet genopre
 HENKAKU_RELOAD_CONFIG_MESSAGE        = "taiHEN config.txt er blevet genindlæst."
 HENKAKU_UNSAFE_HOMEBREW_MESSAGE      = "Usikre homebrews kan skade din enhed permanent,\hvis de bruges forkert, er fejlkonfigurerede\eller indeholder skadelig kode.\\Vær forsigtig når du installerer disse."
 
-# VitaShell settings
-VITASHELL_SETTINGS_MAIN              = "Indstillinger"
-VITASHELL_SETTINGS_LANGUAGE          = "Sprog"
-VITASHELL_SETTINGS_THEME             = "Tema"
-VITASHELL_SETTINGS_USBDEVICE         = "USB enhed"
-VITASHELL_SETTINGS_SELECT_BUTTON     = "VÆLG knap"
-VITASHELL_SETTINGS_NO_AUTO_UPDATE    = "Deaktiver auto-opdatering"
-VITASHELL_SETTINGS_RESTART_SHELL     = "Genstart VitaShell"
-VITASHELL_SETTINGS_POWER             = "Strøm"
-VITASHELL_SETTINGS_REBOOT            = "Genstart"
-VITASHELL_SETTINGS_POWEROFF          = "Sluk"
-VITASHELL_SETTINGS_STANDBY           = "Standby"
-VITASHELL_SETTINGS_USB_MEMORY_CARD   = "Hukommelseskort"
-VITASHELL_SETTINGS_USB_GAME_CARD     = "Spilkort"
-VITASHELL_SETTINGS_USB_SD2VITA       = "sd2vita"
-VITASHELL_SETTINGS_USB_PSVSD         = "psvsd"
-VITASHELL_SETTINGS_SELECT_BUTTON_USB = "USB"
-VITASHELL_SETTINGS_SELECT_BUTTON_FTP = "FTP"
+# DualShellCommander settings
+DUALSHELLCOMMANDER_SETTINGS_MAIN              = "Indstillinger"
+DUALSHELLCOMMANDER_SETTINGS_LANGUAGE          = "Sprog"
+DUALSHELLCOMMANDER_SETTINGS_THEME             = "Tema"
+DUALSHELLCOMMANDER_SETTINGS_USBDEVICE         = "USB enhed"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON     = "VÆLG knap"
+DUALSHELLCOMMANDER_SETTINGS_NO_AUTO_UPDATE    = "Deaktiver auto-opdatering"
+DUALSHELLCOMMANDER_SETTINGS_RESTART_SHELL     = "Genstart DualShellCommander"
+DUALSHELLCOMMANDER_SETTINGS_POWER             = "Strøm"
+DUALSHELLCOMMANDER_SETTINGS_REBOOT            = "Genstart"
+DUALSHELLCOMMANDER_SETTINGS_POWEROFF          = "Sluk"
+DUALSHELLCOMMANDER_SETTINGS_STANDBY           = "Standby"
+DUALSHELLCOMMANDER_SETTINGS_USB_MEMORY_CARD   = "Hukommelseskort"
+DUALSHELLCOMMANDER_SETTINGS_USB_GAME_CARD     = "Spilkort"
+DUALSHELLCOMMANDER_SETTINGS_USB_SD2VITA       = "sd2vita"
+DUALSHELLCOMMANDER_SETTINGS_USB_PSVSD         = "psvsd"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_USB = "USB"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_FTP = "FTP"
 
 # USB strings
 USB_CONNECTED                        = "USB forbundet"
@@ -197,7 +197,7 @@ NO_SPACE_ERROR                       = "Der er ikke nok fri plads på hukommelse
 EXTENDED_PERMISSIONS_REQUIRED        = "Denne funktion kræver udvidede tilladelser.\Aktiver først 'Tillad usikre homebrews'."
 WIFI_ERROR                           = "Du skal bruge Wi-Fi for at gøre dette."
 FTP_SERVER                           = "FTP server kører nu på\ftp://%s:%i\\Tryk 'OK' for at beholde det i baggrunden.\Tryk 'Afbryd' for at afbryde."
-UPDATE_QUESTION                      = "VitaShell %s er nu tilgængelig.\\Vil du opdatere applikationen?"
+UPDATE_QUESTION                      = "DualShellCommander %s er nu tilgængelig.\\Vil du opdatere applikationen?"
 ARCHIVE_NAME                         = "Arkiv navn"
 COMPRESSION_LEVEL                    = "Pakkeniveau (0-9)"
 ENTER_PASSWORD                       = "Indtast adgangskode"

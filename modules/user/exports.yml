@@ -1,4 +1,4 @@
-VitaShellUser:
+DualShellCommanderUser:
   attributes: 0
   version:
     major: 1
@@ -7,9 +7,11 @@ VitaShellUser:
     start: module_start
     stop: module_stop
   modules:
-    VitaShellUserLibrary:
+    DualShellCommanderUserLibrary:
       syscall: false
       functions:
         - shellUserIsUx0Redirected
         - shellUserRedirectUx0
         - shellUserUnredirectUx0
+        - shellUserMountById
+        - shelUserGetRifVitaKey

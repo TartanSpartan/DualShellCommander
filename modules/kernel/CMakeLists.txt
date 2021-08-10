@@ -22,9 +22,10 @@ target_link_libraries(kernel
   SceIofilemgrForDriver_stub
   SceSysclibForDriver_stub
   SceSysmemForDriver_stub
-  SceModulemgrForKernel_stub
   SceModulemgrForDriver_stub
   SceThreadmgrForDriver_stub
+  SceProcessmgrForDriver_stub
+  SceNpDrmForDriver_stub
   taihenForKernel_stub
   taihenModuleUtils_stub
 )
@@ -38,7 +39,7 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/stubs/
   FILES_MATCHING PATTERN "*.a"
 )
 
-install(FILES vitashell_kernel.h
+install(FILES dualshellcommander_kernel.h
   DESTINATION include
 )
 

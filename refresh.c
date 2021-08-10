@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
   Copyright (C) 2017, VitaSmith
 
   This program is free software: you can redistribute it and/or modify
@@ -195,7 +195,7 @@ void app_callback(void* data, const char* dir, const char* subdir)
   refresh_data_t *refresh_data = (refresh_data_t*)data;
   char path[MAX_PATH_LENGTH];
 
-  if (strcasecmp(subdir, vitashell_titleid) == 0)
+  if (strcasecmp(subdir, dualshellcommander_titleid) == 0)
     return;
 
   if (refresh_data->refresh_pass) {

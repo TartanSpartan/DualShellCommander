@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,14 +26,14 @@
 #include "language.h"
 #include "utils.h"
 
-#define VITASHELL_USER_AGENT "VitaShell/1.00 libhttp/1.1"
+#define DUALSHELLCOMMANDER_USER_AGENT "DualShellCommander/1.00 libhttp/1.1"
 
 int getDownloadFileSize(const char *src, uint64_t *size) {
   int res;
   int statusCode;
   int tmplId = -1, connId = -1, reqId = -1;
 
-  res = sceHttpCreateTemplate(VITASHELL_USER_AGENT, SCE_HTTP_VERSION_1_1, SCE_TRUE);
+  res = sceHttpCreateTemplate(DUALSHELLCOMMANDER_USER_AGENT, SCE_HTTP_VERSION_1_1, SCE_TRUE);
   if (res < 0)
     goto ERROR_EXIT;
 
@@ -82,7 +82,7 @@ int getFieldFromHeader(const char *src, const char *field, const char **data, un
   unsigned int headerSize;
   int tmplId = -1, connId = -1, reqId = -1;
 
-  res = sceHttpCreateTemplate(VITASHELL_USER_AGENT, SCE_HTTP_VERSION_1_1, SCE_TRUE);
+  res = sceHttpCreateTemplate(DUALSHELLCOMMANDER_USER_AGENT, SCE_HTTP_VERSION_1_1, SCE_TRUE);
   if (res < 0)
     goto ERROR_EXIT;
 
@@ -135,7 +135,7 @@ int downloadFile(const char *src, const char *dst, FileProcessParam *param) {
   SceUID fd = -1;
   int ret = 1;
 
-  res = sceHttpCreateTemplate(VITASHELL_USER_AGENT, SCE_HTTP_VERSION_1_1, SCE_TRUE);
+  res = sceHttpCreateTemplate(DUALSHELLCOMMANDER_USER_AGENT, SCE_HTTP_VERSION_1_1, SCE_TRUE);
   if (res < 0)
     goto ERROR_EXIT;
 

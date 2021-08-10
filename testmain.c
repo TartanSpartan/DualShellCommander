@@ -137,7 +137,7 @@ static void dirUp() {
       strcmp(file_list.path, pfs_mounted_path) == 0 && // we're about to leave the pfs path
       !strstr(copy_list.path, pfs_mounted_path)) { // nothing has been copied from pfs path
     // Then umount
-    pfsUmount();
+    gameDataUmount();
   }
 
   removeEndSlash(file_list.path);
@@ -276,9 +276,6 @@ static void refreshCopyList() {
 static int handleFile(const char *file, FileListEntry *entry) {
   int res = 0;
 
-  // try to fix GPU freeze
-  vita2d_wait_rendering_done();
-  
   int type = getFileType(file);
 
   switch (type) {
@@ -384,6 +381,9 @@ void drawShellInfo(const char *path) {
 
     float percent = scePowerGetBatteryLifePercent() / 100.0f;
 
+    //Battery Percentage readout, FIX THIS
+    //char string[3];
+    //pgf_draw_text(percent, SHELL_MARGIN_Y, DATE_TIME_COLOR, string);
     float width = vita2d_texture_get_width(battery_bar_image);
     vita2d_draw_texture_part(battery_bar_image, battery_x + 3.0f + (1.0f - percent) * width,
                              SHELL_MARGIN_Y + 5.0f, (1.0f - percent) * width, 0.0f, percent * width,
@@ -393,14 +393,6 @@ void drawShellInfo(const char *path) {
       vita2d_draw_texture(battery_bar_charge_image, battery_x + 3.0f, SHELL_MARGIN_Y + 5.0f);
     }
 
-    // Battery Percentage read out    
-    char battery_string[10];
-    snprintf(battery_string, sizeof(battery_string), ("%4.0f" "%%         "), (percent * 100));
-    float percentage_x =  ALIGN_RIGHT(x, pgf_text_width(battery_string));
-    pgf_draw_text(percentage_x, SHELL_MARGIN_Y, DATE_TIME_COLOR, battery_string);
-    
-    x = percentage_x - STATUS_BAR_SPACE_X;
-    // Why this line? Is it redundant? Try commenting it out?
     x = battery_x - STATUS_BAR_SPACE_X;
   }
 
@@ -415,13 +407,7 @@ void drawShellInfo(const char *path) {
   getTimeString(time_string, time_format, &time);
 
   char string[64];
-  
-  // Only offset the date & time string if we are on portable hardware with a battery
-  if (sceKernelGetModel() == SCE_KERNEL_MODEL_VITA) {
-    snprintf(string, sizeof(string), "%s  %s          ", date_string, time_string);
-  } else {
-    snprintf(string, sizeof(string), "%s  %s", date_string, time_string);
-  }
+  snprintf(string, sizeof(string), "%s  %s", date_string, time_string);
   float date_time_x = ALIGN_RIGHT(x, pgf_text_width(string));
   pgf_draw_text(date_time_x, SHELL_MARGIN_Y, DATE_TIME_COLOR, string);
 
@@ -464,13 +450,13 @@ void drawShellInfo(const char *path) {
                    is_safe_mode ? language_container[SAFE_MODE] : language_container[UNSAFE_MODE]);
   } else {
     // Path (UNCOMMENT OUT WHEN FINISHED WITH DEBUG)
-    pgf_draw_text(SHELL_MARGIN_X, PATH_Y, PATH_COLOR, path_first_line);
-    pgf_draw_text(SHELL_MARGIN_X, PATH_Y + FONT_Y_SPACE, PATH_COLOR, path_second_line);
+    //pgf_draw_text(SHELL_MARGIN_X, PATH_Y, PATH_COLOR, path_first_line);
+    //pgf_draw_text(SHELL_MARGIN_X, PATH_Y + FONT_Y_SPACE, PATH_COLOR, path_second_line);
   
 
  // Print statements for debug (EXPERIMENTAL, COMMENT OUT IF NECESSARY))
- //char string[256]; 
-  //pgf_draw_text(SHELL_MARGIN_X, PATH_Y, PATH_COLOR, ("base_pos is " + base_pos_list[i]));
+ char string[256]; 
+  pgf_draw_text(SHELL_MARGIN_X, PATH_Y, PATH_COLOR, ("base_pos is " + base_pos_list[i]));
  }
 }
 
@@ -630,10 +616,8 @@ static int dialogSteps() {
           fileListEmpty(&copy_list);
         
         // Umount and remove from clipboard after pasting
-        if (pfs_mounted_path[0] && 
-            !strstr(file_list.path, pfs_mounted_path) &&
-             strstr(copy_list.path, pfs_mounted_path)) {
-          pfsUmount();
+        if (pfs_mounted_path[0] && strstr(copy_list.path, pfs_mounted_path)) {
+          gameDataUmount();
           fileListEmpty(&copy_list);
         }
 
@@ -1512,7 +1496,7 @@ static int fileBrowserMenuCtrl() {
         initMessageDialog(SCE_MSG_DIALOG_BUTTON_TYPE_OK_CANCEL, language_container[FTP_SERVER], vita_ip, vita_port);
         setDialogStep(DIALOG_STEP_FTP);
       }
-   // QR is now a SELECT button function too, to free up L&R for page scrolling
+
     } else if (dualshellcommander_config.select_button == SELECT_BUTTON_MODE_QRC && enabledQR()) {
           startQR();
 	  initMessageDialog(MESSAGE_DIALOG_QR_CODE, language_container[QR_SCANNING]);
@@ -1520,6 +1504,13 @@ static int fileBrowserMenuCtrl() {
       }
 
   }
+
+  // QR
+ // if (hold_pad[PAD_LTRIGGER] && hold_pad[PAD_RTRIGGER] && enabledQR()) {
+   // startQR();
+   // initMessageDialog(MESSAGE_DIALOG_QR_CODE, language_container[QR_SCANNING]);
+   // setDialogStep(DIALOG_STEP_QR);
+ // }
   
   // Move  
   if (hold_pad[PAD_UP] || hold2_pad[PAD_LEFT_ANALOG_UP]) {
@@ -1537,7 +1528,7 @@ static int fileBrowserMenuCtrl() {
   } else if (hold_pad[PAD_DOWN] || hold2_pad[PAD_LEFT_ANALOG_DOWN]) {
     int old_pos = base_pos + rel_pos;
 
-    if ((old_pos + 1) < file_list.length) {
+    if ((rel_pos + 1) < file_list.length) {
       if ((rel_pos + 1) < MAX_POSITION) {
         rel_pos++;
       } else if ((base_pos + rel_pos + 1) < file_list.length) {
@@ -1553,44 +1544,29 @@ static int fileBrowserMenuCtrl() {
   if (hold_pad[PAD_LTRIGGER]) {
     int old_pos = base_pos + rel_pos;
     
-    if ((base_pos - MAX_POSITION) >= 0) {
-      base_pos = base_pos - MAX_POSITION;
-    } else {
-      base_pos = 0;
-    }
-    int missing_steps = (base_pos + rel_pos) - (old_pos - MAX_POSITION);
-    
-    if (missing_steps > 0) {
-      if ((rel_pos - missing_steps) >= 0) {
-        rel_pos = rel_pos - missing_steps;
-      } else {
-        rel_pos = 0;
-      }
+    if (rel_pos > 17) {
+      rel_pos = rel_pos-18;
+    } else if (base_pos > 17) {
+      base_pos = base_pos -18;
     }
 
     if (old_pos != base_pos + rel_pos) {
       scroll_count = 0;
     }
-
-} else if (hold_pad[PAD_RTRIGGER]) {
+  } else if (hold_pad[PAD_RTRIGGER]) {
     int old_pos = base_pos + rel_pos;
 
-    if ((old_pos + MAX_POSITION) < file_list.length) {
-      base_pos = base_pos + MAX_POSITION;
-    } else {
-      if (file_list.length < MAX_POSITION) {
-        base_pos = 0;
-        rel_pos = file_list.length - 1;
-      } else {
-        base_pos = file_list.length - MAX_POSITION;
-        rel_pos = MAX_POSITION - 1;
+    if ((rel_pos + 17) < file_list.length) {
+      if ((rel_pos + 17) < MAX_POSITION) {
+        rel_pos = rel_pos + 17;
+      } else if ((base_pos + rel_pos + 17) < file_list.length) {
+        base_pos = base_pos + 17;
       }
     }
-    
     if (old_pos != base_pos + rel_pos) {
       scroll_count = 0;
     }
-}
+  }
 
   // Context menu trigger
   if (pressed_pad[PAD_TRIANGLE]) {
@@ -1774,7 +1750,7 @@ static int shellMain() {
     // Refresh on app resume
     if (event.systemEvent == SCE_APPMGR_SYSTEMEVENT_ON_RESUME) {
       sceShellUtilLock(SCE_SHELL_UTIL_LOCK_TYPE_USB_CONNECTION);
-      pfsUmount(); // umount game data at resume
+      gameDataUmount(); // umount game data at resume
       refresh = REFRESH_MODE_NORMAL;
     }
 

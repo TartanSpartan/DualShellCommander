@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
 
 #define NET_INIT_SIZE 1 * 1024 * 1024
 
-extern char vitashell_titleid[12];
+extern char dualshellcommander_titleid[12];
 
 extern int is_safe_mode;
 
@@ -40,7 +40,7 @@ typedef struct {
 
 vita2d_pgf *loadSystemFonts();
 
-void initVitaShell();
-void finishVitaShell();
+void initDualShellCommander();
+void finishDualShellCommander();
 
 #endif

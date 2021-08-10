@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -16,11 +16,26 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef __VITASHELL_USER_H__
-#define __VITASHELL_USER_H__
+#ifndef __DUALSHELLCOMMANDER_CONFIGURATION_H__
+#define __DUALSHELLCOMMANDER_CONFIGURATION_H__
 
-int shellUserIsUx0Redirected();
-int shellUserRedirectUx0();
-int shellUserUnredirectUx0();
+enum UsbDeviceModes {
+  USBDEVICE_MODE_MEMORY_CARD,
+  USBDEVICE_MODE_GAME_CARD,
+  USBDEVICE_MODE_SD2VITA,
+  USBDEVICE_MODE_PSVSD,
+};
+
+enum SelectButtonModes {
+  SELECT_BUTTON_MODE_USB,
+  SELECT_BUTTON_MODE_FTP,
+  SELECT_BUTTON_MODE_QRC,
+};
+
+typedef struct {
+  int usbdevice;
+  int select_button;
+  int disable_autoupdate;
+} DualShellCommanderConfig;
 
 #endif

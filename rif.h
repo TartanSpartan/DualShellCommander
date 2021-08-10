@@ -1,5 +1,5 @@
 /*
-  VitaShell - RIF handling functions
+  DualShellCommander - RIF handling functions
   Copyright (C) 2017 VitaSmith
 
   This program is free software: you can redistribute it and/or modify

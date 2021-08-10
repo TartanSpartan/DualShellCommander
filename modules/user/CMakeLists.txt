@@ -21,7 +21,7 @@ add_executable(user
 target_link_libraries(user
   SceLibKernel_stub
   SceIofilemgr_stub
-  VitaShellKernel2_stub
+  DualShellCommanderKernel2_stub
 )
 
 vita_create_self(user.suprx user CONFIG exports.yml UNSAFE)
@@ -33,7 +33,7 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/stubs/
   FILES_MATCHING PATTERN "*.a"
 )
 
-install(FILES vitashell_user.h
+install(FILES dualshellcommander_user.h
   DESTINATION include
 )
 

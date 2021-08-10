@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ int initNetCheckDialog(int mode, int timeoutUs) {
   SceNetAdhocctlGroupName groupName;
   memset(groupName.data, 0, SCE_NET_ADHOCCTL_GROUPNAME_LEN);
   param.groupName = &groupName;
-  memcpy(&param.npCommunicationId.data, VITASHELL_TITLEID, 9);
+  memcpy(&param.npCommunicationId.data, DUALSHELLCOMMANDER_TITLEID, 9);
   param.npCommunicationId.term = '\0';
   param.npCommunicationId.num = 0;
   param.mode = mode;

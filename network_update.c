@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -27,10 +27,11 @@
 #include "language.h"
 #include "utils.h"
 
-#define BASE_ADDRESS "https://github.com/TheOfficialFloW/VitaShell/releases/download"
+// NOTE: NEED TO TWEAK THIS, AND MAKE A GITHUB REPO TO UPDATE THE PROGRAM! DECIDE WHEN TO DO THIS SOON; THINGS MAY BREAK EVEN WITHOUT DOING THIS!
+#define BASE_ADDRESS "https://raw.githubusercontent.com/TheOfficialFloW/DualShellCommander/master/releases/download"
 #define VERSION_URL "/0.2/version.bin"
-#define VITASHELL_UPDATE_FILE "ux0:VitaShell/internal/VitaShell.vpk"
-#define VITASHELL_VERSION_FILE "ux0:VitaShell/internal/version.bin"
+#define DUALSHELLCOMMANDER_UPDATE_FILE "ux0:DualShellCommander/internal/DualShellCommander.vpk"
+#define DUALSHELLCOMMANDER_VERSION_FILE "ux0:DualShellCommander/internal/version.bin"
 
 extern unsigned char _binary_resources_updater_eboot_bin_start;
 extern unsigned char _binary_resources_updater_eboot_bin_size;
@@ -40,19 +41,19 @@ extern unsigned char _binary_resources_updater_param_bin_size;
 int network_update_thread(SceSize args, void *argp) {
   uint64_t size = 0;
   if (getDownloadFileSize(BASE_ADDRESS VERSION_URL, &size) >= 0 && size == sizeof(uint32_t)) {
-    int res = downloadFile(BASE_ADDRESS VERSION_URL, VITASHELL_VERSION_FILE, NULL);
+    int res = downloadFile(BASE_ADDRESS VERSION_URL, DUALSHELLCOMMANDER_VERSION_FILE, NULL);
     if (res <= 0)
       goto EXIT;
 
     // Read version
     uint32_t version = 0;
-    ReadFile(VITASHELL_VERSION_FILE, &version, sizeof(uint32_t));
-    sceIoRemove(VITASHELL_VERSION_FILE);
+    ReadFile(DUALSHELLCOMMANDER_VERSION_FILE, &version, sizeof(uint32_t));
+    sceIoRemove(DUALSHELLCOMMANDER_VERSION_FILE);
 
     // Only show update question if no dialog is running
     if (getDialogStep() == DIALOG_STEP_NONE) {
       // New update available
-      if (version > VITASHELL_VERSION) {
+      if (version > DUALSHELLCOMMANDER_VERSION) {
         int major = (version >> 0x18) & 0xFF;
         int minor = (version >> 0x10) & 0xFF;
 
@@ -75,11 +76,8 @@ int network_update_thread(SceSize args, void *argp) {
           goto EXIT;
         }
 
-        char url[128];
-        snprintf(url, sizeof(url), BASE_ADDRESS "/%s/VitaShell.vpk", version_string);
-
         // Yes
-        return downloadFileProcess(url, VITASHELL_UPDATE_FILE, DIALOG_STEP_DOWNLOADED);
+        return downloadFileProcess(url, DUALSHELLCOMMANDER_UPDATE_FILE, DIALOG_STEP_DOWNLOADED);
       }
     }
   }
@@ -96,7 +94,7 @@ void installUpdater() {
   // Make dir
   sceIoMkdir("ux0:data/pkg/sce_sys", 0777);
 
-  // Write VitaShell updater files
+  // Write DualShellCommander updater files
   WriteFile("ux0:data/pkg/eboot.bin", (void *)&_binary_resources_updater_eboot_bin_start, (int)&_binary_resources_updater_eboot_bin_size);
   WriteFile("ux0:data/pkg/sce_sys/param.sfo", (void *)&_binary_resources_updater_param_bin_start, (int)&_binary_resources_updater_param_bin_size);
 
@@ -126,7 +124,7 @@ int update_extract_thread(SceSize args, void *argp) {
 
   // Open archive
   archiveClearPassword();
-  int res = archiveOpen(VITASHELL_UPDATE_FILE);
+  int res = archiveOpen(DUALSHELLCOMMANDER_UPDATE_FILE);
   if (res < 0) {
     closeWaitDialog();
     errorDialog(res);
@@ -134,7 +132,7 @@ int update_extract_thread(SceSize args, void *argp) {
   }
 
   // Src path
-  char *src_path = VITASHELL_UPDATE_FILE "/";
+  char *src_path = DUALSHELLCOMMANDER_UPDATE_FILE "/";
 
   // Get archive path info
   uint64_t size = 0;
@@ -162,7 +160,7 @@ int update_extract_thread(SceSize args, void *argp) {
   }
 
   // Remove update file
-  sceIoRemove(VITASHELL_UPDATE_FILE);
+  sceIoRemove(DUALSHELLCOMMANDER_UPDATE_FILE);
 
   // Make head.bin
   res = makeHeadBin();

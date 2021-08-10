@@ -12,7 +12,7 @@ ASFLAGS  = $(CFLAGS)
 all: $(TARGET).vpk
 
 %.vpk: eboot.bin
-	vita-mksfoex -s TITLE_ID=$(TITLE_ID) "VitaShell Updater" param.sfo
+	vita-mksfoex -s TITLE_ID=$(TITLE_ID) "DualShellCommander Updater" param.sfo
 	vita-pack-vpk -s param.sfo -b eboot.bin $@
 
 eboot.bin: $(TARGET).velf

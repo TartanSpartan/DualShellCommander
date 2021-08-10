@@ -13,7 +13,7 @@ endif()
 project(DualShellCommander)
 include("${VITASDK}/share/vita.cmake" REQUIRED)
 set(VITA_APP_NAME "DualShellCommander")
-set(VITA_TITLEID  "DLSHLLCMR")
+set(VITA_TITLEID  "DUALSHELLCOMMANDER")
 set(VITA_VERSION  "00.20")
 
 # Flags and includes
@@ -143,6 +143,7 @@ target_link_libraries(DualShellCommander
   expat
   taihen_stub
   DualShellCommanderUser_stub_weak
+  //${CMAKE_CURRENT_BINARY_DIR}/modules/user/dualshellcommander_user_stubs/libDualShellCommanderUser_stub_weak.a
   SceAppMgr_stub
   SceAppUtil_stub
   SceAudio_stub
@@ -187,11 +188,6 @@ vita_create_vpk(DualShellCommander.vpk ${VITA_TITLEID} eboot.bin
      pkg/sce_sys/livearea/contents/bg.png sce_sys/livearea/contents/bg.png
      pkg/sce_sys/livearea/contents/startup.png sce_sys/livearea/contents/startup.png
      pkg/sce_sys/livearea/contents/template.xml sce_sys/livearea/contents/template.xml
-)
-
-add_custom_target(RELEASE
-  COMMAND cp DualShellCommander.vpk../release/DualShellCommander.vpk
-  DEPENDS DualShellCommander.vpk  
 )
 
 add_custom_target(send

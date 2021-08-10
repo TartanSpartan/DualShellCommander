@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -44,22 +44,22 @@
 
 #include <taihen.h>
 
-#include <vitashell_user.h>
+#include <dualshellcommander_user.h>
 
 #include "file.h"
-#include "vitashell_config.h"
+#include "dualshellcommander_config.h"
 
 #define INCLUDE_EXTERN_RESOURCE(name) extern unsigned char _binary_resources_##name##_start; extern unsigned char _binary_resources_##name##_size; \
 
-// VitaShell version major.minor
-#define VITASHELL_VERSION_MAJOR 0x01
-#define VITASHELL_VERSION_MINOR 0x81
+// DualShellCommander version major.minor
+#define DUALSHELLCOMMANDER_VERSION_MAJOR 0x00 // formerly 0x01
+#define DUALSHELLCOMMANDER_VERSION_MINOR 0x30 // formerly 0x90
 
-#define VITASHELL_VERSION ((VITASHELL_VERSION_MAJOR << 0x18) | (VITASHELL_VERSION_MINOR << 0x10))
+#define DUALSHELLCOMMANDER_VERSION ((DUALSHELLCOMMANDER_VERSION_MAJOR << 0x02) | (DUALSHELLCOMMANDER_VERSION_MINOR << 0x00)) // CHECK what this does with Neil
 
-#define VITASHELL_LASTDIR "ux0:VitaShell/internal/lastdir.txt"
+#define DUALSHELLCOMMANDER_LASTDIR "ux0:DualShellCommander/internal/lastdir.txt"
 
-#define VITASHELL_TITLEID "VITASHELL"
+#define DUALSHELLCOMMANDER_TITLEID "DUALSHELLCOMMANDER"
 
 #define ALIGN(x, align) (((x) + ((align) - 1)) & ~((align) - 1))
 
@@ -103,6 +103,10 @@
 #define MAX_WIDTH (SCREEN_WIDTH - 2.0f * SHELL_MARGIN_X)
 
 #define STATUS_BAR_SPACE_X 12.0f
+
+// Offset for battery percentage display MAYBE CUT THIS
+//#define STATUS_BAR_SPACE_X_OFFSET 40.0f
+
 
 // Hex
 #define HEX_OFFSET_X 147.0f
@@ -254,7 +258,7 @@ extern int sort_mode, copy_mode;
 extern vita2d_pgf *font;
 extern char font_size_cache[256];
 
-extern VitaShellConfig vitashell_config;
+extern DualShellCommanderConfig dualshellcommander_config;
 
 extern int SCE_CTRL_ENTER, SCE_CTRL_CANCEL;
 

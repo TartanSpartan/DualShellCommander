@@ -1,4 +1,4 @@
-# VitaShell polish translation by szczuru
+# DualShellCommander polish translation by szczuru
 
 ERROR							= "Błąd 0x%08X."
 OK								= "OK"

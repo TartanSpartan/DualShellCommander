@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -28,8 +28,8 @@ extern ContextMenu context_menu_main;
 extern ContextMenu context_menu_sort;
 extern ContextMenu context_menu_more;
 
-int gameDataMount(const char *path);
-int gameDataUmount();
+int pfsMount(const char *path);
+int pfsUmount();
 
 void initContextMenuWidth();
 void setContextMenuHomeVisibilities();

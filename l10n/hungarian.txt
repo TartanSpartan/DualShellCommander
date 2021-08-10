@@ -1,4 +1,4 @@
-# VitaShell language file
+# DualShellCommander language file
 
 # General strings
 ERROR                                = "Hiba: 0x%08X."
@@ -144,24 +144,24 @@ HENKAKU_RESTORE_DEFAULT_MESSAGE      = "Az alapértelmezett beállitások sikere
 HENKAKU_RELOAD_CONFIG_MESSAGE        = "A taiHEN config.txt sikeresen visszaállítódott."
 HENKAKU_UNSAFE_HOMEBREW_MESSAGE      = "A nem biztonságos homebrewek tönkretehetik az eszközöd\örökre, ha rosszul használod, rosszul van beállitva,\vagy rosszindulatú.\\Kérlek vigyázz amikor telepíted őket."
 
-# VitaShell settings
-VITASHELL_SETTINGS_MAIN              = "Fő beállítások"
-VITASHELL_SETTINGS_LANGUAGE          = "Nyelv"
-VITASHELL_SETTINGS_THEME             = "Téma"
-VITASHELL_SETTINGS_USBDEVICE         = "USB eszköz"
-VITASHELL_SETTINGS_SELECT_BUTTON     = "SELECT gomb"
-VITASHELL_SETTINGS_NO_AUTO_UPDATE    = "Automatikus frissítés kikapcsolása"
-VITASHELL_SETTINGS_RESTART_SHELL     = "VitaShell újraindítása"
-VITASHELL_SETTINGS_POWER             = "Energiagazdálkodás"
-VITASHELL_SETTINGS_REBOOT            = "Újraindítás"
-VITASHELL_SETTINGS_POWEROFF          = "Kikapcsolás"
-VITASHELL_SETTINGS_STANDBY           = "Készenlét"
-VITASHELL_SETTINGS_USB_MEMORY_CARD   = "Memória kártya"
-VITASHELL_SETTINGS_USB_GAME_CARD     = "Játék kártya"
-VITASHELL_SETTINGS_USB_SD2VITA       = "sd2vita"
-VITASHELL_SETTINGS_USB_PSVSD         = "psvsd"
-VITASHELL_SETTINGS_SELECT_BUTTON_USB = "USB"
-VITASHELL_SETTINGS_SELECT_BUTTON_FTP = "FTP"
+# DualShellCommander settings
+DUALSHELLCOMMANDER_SETTINGS_MAIN              = "Fő beállítások"
+DUALSHELLCOMMANDER_SETTINGS_LANGUAGE          = "Nyelv"
+DUALSHELLCOMMANDER_SETTINGS_THEME             = "Téma"
+DUALSHELLCOMMANDER_SETTINGS_USBDEVICE         = "USB eszköz"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON     = "SELECT gomb"
+DUALSHELLCOMMANDER_SETTINGS_NO_AUTO_UPDATE    = "Automatikus frissítés kikapcsolása"
+DUALSHELLCOMMANDER_SETTINGS_RESTART_SHELL     = "DUALSHELLCOMMANDER újraindítása"
+DUALSHELLCOMMANDER_SETTINGS_POWER             = "Energiagazdálkodás"
+DUALSHELLCOMMANDER_SETTINGS_REBOOT            = "Újraindítás"
+DUALSHELLCOMMANDER_SETTINGS_POWEROFF          = "Kikapcsolás"
+DUALSHELLCOMMANDER_SETTINGS_STANDBY           = "Készenlét"
+DUALSHELLCOMMANDER_SETTINGS_USB_MEMORY_CARD   = "Memória kártya"
+DUALSHELLCOMMANDER_SETTINGS_USB_GAME_CARD     = "Játék kártya"
+DUALSHELLCOMMANDER_SETTINGS_USB_SD2VITA       = "sd2vita"
+DUALSHELLCOMMANDER_SETTINGS_USB_PSVSD         = "psvsd"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_USB = "USB"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_FTP = "FTP"
 
 # USB strings
 USB_CONNECTED                        = "USB csatlakoztatva"
@@ -197,7 +197,7 @@ NO_SPACE_ERROR                       = "Nincs elég szabad hely a memória\kárt
 EXTENDED_PERMISSIONS_REQUIRED        = "Ez a funkció kiterjesztett jogosultságokat kér.\Kérlek aktiváld a 'Nem biztonságos homebrewek engedélyezése' először."
 WIFI_ERROR                           = "Ehhez a művelethez Wi-Fi kapcsolatra van szükség."
 FTP_SERVER                           = "FTP szerver fut ezen a címen\ftp://%s:%i\\Nyomj 'OK' gombot a háttérben való futtatáshoz\'Mégse' gombot a kapcsolat bontásához."
-UPDATE_QUESTION                      = "VitaShell %s mostantól elérhető.\\Frissíteni szeretnéd az alkalmazást?"
+UPDATE_QUESTION                      = "DualShellCommander %s mostantól elérhető.\\Frissíteni szeretnéd az alkalmazást?"
 ARCHIVE_NAME                         = "Archívum neve"
 COMPRESSION_LEVEL                    = "Becsomagolás szintje (0-9)"
 ENTER_PASSWORD                       = "Írd be a jelszót"

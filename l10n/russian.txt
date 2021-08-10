@@ -1,4 +1,4 @@
-# VitaShell language file 1.76 ■ класть в "ux0:VitaShell/language/" ■ перевод by lupus
+# DualShellCommander language file 1.76 ■ класть в "ux0:DualShellCommander/language/" ■ перевод by lupus
 
 # General strings
 ERROR                                         = "Ошибка 0x%08X."
@@ -141,24 +141,24 @@ HENKAKU_RESTORE_DEFAULT_MESSAGE               = "Стандартные наст
 HENKAKU_RELOAD_CONFIG_MESSAGE                 = "Данные taiHEN config.txt обновлены."
 HENKAKU_UNSAFE_HOMEBREW_MESSAGE               = "Небезопасные homebrew могут нанести вред вашему устройству\или привести к его поломке.\Внимательно отнеситесь к данному предупреждению."
 
-# VitaShell settings
-VITASHELL_SETTINGS_MAIN                       = "Основные настройки"
-VITASHELL_SETTINGS_LANGUAGE                   = "Язык"
-VITASHELL_SETTINGS_THEME                      = "Тема"
-VITASHELL_SETTINGS_USBDEVICE                  = "Настройки USB"
-VITASHELL_SETTINGS_SELECT_BUTTON              = "Кнопка SELECT"
-VITASHELL_SETTINGS_NO_AUTO_UPDATE             = "Отключить автообновление"
-VITASHELL_SETTINGS_RESTART_SHELL              = "Перезапустить VitaShell"
-VITASHELL_SETTINGS_POWER                      = "Питание"
-VITASHELL_SETTINGS_REBOOT                     = "Перезаргузка"
-VITASHELL_SETTINGS_POWEROFF                   = "Отключить питание"
-VITASHELL_SETTINGS_STANDBY                    = "Режим сна"
-VITASHELL_SETTINGS_USB_MEMORY_CARD            = "Карта памяти"
-VITASHELL_SETTINGS_USB_GAME_CARD              = "Игровой картридж"
-VITASHELL_SETTINGS_USB_SD2VITA                = "SD2VITA"
-VITASHELL_SETTINGS_USB_PSVSD                  = "PSVSD"
-VITASHELL_SETTINGS_SELECT_BUTTON_USB          = "USB соединение"
-VITASHELL_SETTINGS_SELECT_BUTTON_FTP          = "FTP сервер"
+# DualShellCommander settings
+DUALSHELLCOMMANDER_SETTINGS_MAIN                       = "Основные настройки"
+DUALSHELLCOMMANDER_SETTINGS_LANGUAGE                   = "Язык"
+DUALSHELLCOMMANDER_SETTINGS_THEME                      = "Тема"
+DUALSHELLCOMMANDER_SETTINGS_USBDEVICE                  = "Настройки USB"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON              = "Кнопка SELECT"
+DUALSHELLCOMMANDER_SETTINGS_NO_AUTO_UPDATE             = "Отключить автообновление"
+DUALSHELLCOMMANDER_SETTINGS_RESTART_SHELL              = "Перезапустить DualShellCommander"
+DUALSHELLCOMMANDER_SETTINGS_POWER                      = "Питание"
+DUALSHELLCOMMANDER_SETTINGS_REBOOT                     = "Перезаргузка"
+DUALSHELLCOMMANDER_SETTINGS_POWEROFF                   = "Отключить питание"
+DUALSHELLCOMMANDER_SETTINGS_STANDBY                    = "Режим сна"
+DUALSHELLCOMMANDER_SETTINGS_USB_MEMORY_CARD            = "Карта памяти"
+DUALSHELLCOMMANDER_SETTINGS_USB_GAME_CARD              = "Игровой картридж"
+DUALSHELLCOMMANDER_SETTINGS_USB_SD2VITA                = "SD2VITA"
+DUALSHELLCOMMANDER_SETTINGS_USB_PSVSD                  = "PSVSD"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_USB          = "USB соединение"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_FTP          = "FTP сервер"
 
 # USB strings
 USB_CONNECTED                                 = "Передача данных:\\USB соединение установлено."
@@ -188,6 +188,6 @@ NO_SPACE_ERROR                                = "Внимание!\\Недост
 EXTENDED_PERMISSIONS_REQUIRED                 = "Внимание!\\Для использования данной функции необходимо\активировать опцию 'Разрешить небезопасные homebrew'."
 WIFI_ERROR                                    = "Ошибка Wi-Fi:\\Для запуска FTP-сервера необходимо активное Wi-Fi подключение."
 FTP_SERVER                                    = "Передача данных:\\FTP-сервер доступен по адресу:\ftp://%s:%i\\'OK' - переход в фоновый режим\'Отмена' - остановка сервера."
-UPDATE_QUESTION                               = "Сетевое обновление:\\Для установки доступна VitaShell версии %s.\\Выполнить обновление?"
+UPDATE_QUESTION                               = "Сетевое обновление:\\Для установки доступна DualShellCommander версии %s.\\Выполнить обновление?"
 ARCHIVE_NAME                                  = "Имя архива"
 COMPRESSION_LEVEL                             = "Уровень сжатия (0-9)"

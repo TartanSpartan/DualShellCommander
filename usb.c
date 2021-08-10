@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -33,17 +33,17 @@ int mountUsbUx0() {
   sceIoMkdir("uma0:app/MLCL00001", 0006);
   sceIoMkdir("uma0:appmeta/MLCL00001", 0006);
   sceIoMkdir("uma0:license/app/MLCL00001", 0006);
-  sceIoMkdir("uma0:app/VITASHELL", 0006);
-  sceIoMkdir("uma0:appmeta/VITASHELL", 0006);
-  sceIoMkdir("uma0:license/app/VITASHELL", 0006);
+  sceIoMkdir("uma0:app/DUALSHELLCOMMANDER", 0006);
+  sceIoMkdir("uma0:appmeta/DUALSHELLCOMMANDER", 0006);
+  sceIoMkdir("uma0:license/app/DUALSHELLCOMMANDER", 0006);
 
-  // Copy molecularShell and VitaShell
+  // Copy molecularShell and DualShellCommander
   copyPath("ux0:app/MLCL00001", "uma0:app/MLCL00001", NULL);
   copyPath("ux0:appmeta/MLCL00001", "uma0:appmeta/MLCL00001", NULL);
   copyPath("ux0:license/app/MLCL00001", "uma0:license/app/MLCL00001", NULL);
-  copyPath("ux0:app/VITASHELL", "uma0:app/VITASHELL", NULL);
-  copyPath("ux0:appmeta/VITASHELL", "uma0:appmeta/VITASHELL", NULL);
-  copyPath("ux0:license/app/VITASHELL", "uma0:license/app/VITASHELL", NULL);
+  copyPath("ux0:app/DUALSHELLCOMMANDER", "uma0:app/DUALSHELLCOMMANDER", NULL);
+  copyPath("ux0:appmeta/DUALSHELLCOMMANDER", "uma0:appmeta/DUALSHELLCOMMANDER", NULL);
+  copyPath("ux0:license/app/DUALSHELLCOMMANDER", "uma0:license/app/DUALSHELLCOMMANDER", NULL);
 
   // Create important dirs
   sceIoMkdir("uma0:data", 0777);
@@ -61,7 +61,7 @@ int mountUsbUx0() {
   copyPath("ux0:id.dat", "uma0:id.dat", NULL);
 
   // Remove lastdir.txt file
-  sceIoRemove("uma0:VitaShell/internal/lastdir.txt");
+  sceIoRemove("uma0:DualShellCommander/internal/lastdir.txt");
 
   // Redirect ux0: to uma0:
   shellUserRedirectUx0();

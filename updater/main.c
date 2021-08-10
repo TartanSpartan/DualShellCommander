@@ -1,6 +1,6 @@
 /*
-	VitaShell
-	Copyright (C) 2015-2018, TheFloW
+	DualShellCommander
+	Copyright (C) 2018, TartanSpartan
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -51,28 +51,37 @@ int launchAppByUriExit(char *titleid) {
 	char uri[32];
 	sprintf(uri, "psgm:play?titleid=%s", titleid);
 
-	sceKernelDelayThread(10000);
 	sceAppMgrLaunchAppByUri(0xFFFFF, uri);
-	sceKernelDelayThread(10000);
-	sceAppMgrLaunchAppByUri(0xFFFFF, uri);
-
 	sceKernelExitProcess(0);
 
 	return 0;
 }
 
-void loadScePaf() {
-	uint32_t ptr[0x100] = { 0 };
-	ptr[0] = 0;
-	ptr[1] = (uint32_t)&ptr[0];
-	uint32_t scepaf_argp[] = { 0x400000, 0xEA60, 0x40000, 0, 0 };
-	sceSysmoduleLoadModuleInternalWithArg(0x80000008, sizeof(scepaf_argp), scepaf_argp, ptr);
-}
+static int loadScePaf() {
+	static uint32_t argp[] = { 0x180000, -1, -1, 1, -1, -1 };
 
+    int result = -1;
+  
+    uin32_t buf[4];
+    buf[0] = sizeof(buf)
+    buf[1] = (uint32_t)&result;
+    buf[2] = -1;
+    buf[3] = -1;
+  
+	return sceSysmoduleLoadModuleInternalWithArg(SCE_SYSMODULE_INTERNAL_PAF, sizeof(argp), argp, buf);
+}
+                                                 
+static int unloadScePaf(){
+  uint32_t buf = 0;
+  return sceSysmoduleLoadModuleInternalWithArg(SCE_SYSMODULE_INTERNAL_PAF, 0, NULL, &buf);
+}                                                 
+                                                 
 int promote(char *path) {
 	int res;
 
-	loadScePaf();
+	res = loadScePaf();
+    if (res < 0)
+      return res;
 
 	res = sceSysmoduleLoadModuleInternal(SCE_SYSMODULE_PROMOTER_UTIL);
 	if (res < 0)
@@ -82,32 +91,22 @@ int promote(char *path) {
 	if (res < 0)
 		return res;
 
-	res = scePromoterUtilityPromotePkg(path, 0);
+	res = scePromoterUtilityPromotePkgWithRif(path, 1);
 	if (res < 0)
 		return res;
 
-	int state = 0;
-	do {
-		res = scePromoterUtilityGetState(&state);
-		if (res < 0)
-			return res;
-
-		sceKernelDelayThread(100 * 1000);
-	} while (state);
-
-	int result = 0;
-	res = scePromoterUtilityGetResult(&result);
+  	res = scePromoterUtilityExit();
+	if (res < 0)
+		return res;
+  
+  	res = sceSysmoduleUnloadModuleInternal(SCE_SYSMODULE_PROMOTER_UTIL);
 	if (res < 0)
 		return res;
 
-	res = scePromoterUtilityExit();
-	if (res < 0)
-		return res;
-
-	res = sceSysmoduleUnloadModuleInternal(SCE_SYSMODULE_PROMOTER_UTIL);
-	if (res < 0)
-		return res;
-
+    res = uloadScePaf();
+    if (res < 0)
+      return res;
+  
 	return result;
 }
 
@@ -157,12 +156,15 @@ cleanup:
 }
 
 int main(int argc, const char *argv[]) {
-	char *titleid = get_title_id(PACKAGE_DIR "/sce_sys/param.sfo");
-	if (titleid && strcmp(titleid, "VITASHELL") == 0) {
-		promote(PACKAGE_DIR);
+  // Destroy other apps
+  sceAppMgrDestroyOtherApp();
+  
+  char *titleid = get_title_id(PACKAGE_DIR "/sce_sys/param.sfo");
+	if (titleid && strcmp(titleid, "DUALSHELLCOMMANDER") == 0) {
+		promoteApp(PACKAGE_DIR);
 	}
 
-	launchAppByUriExit("VITASHELL");
+	launchAppByUriExit("DUALSHELLCOMMANDER");
 
 	return 0;
 }

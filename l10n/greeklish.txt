@@ -1,4 +1,4 @@
-# VitaShell language file
+# DualShellCommander language file
 
 ERROR                                = "Sfalma 0x%08X."
 OK                                   = "OK"

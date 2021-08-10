@@ -1,4 +1,4 @@
-# VitaShell french translation by xy2_ 
+# DualShellCommander french translation by xy2_ 
 # Updated by Dragoon1010 (For VitaShell 1.51)
 # Updated by littlebalup (For VitaShell 1.78)
 
@@ -142,24 +142,24 @@ HENKAKU_RESTORE_DEFAULT_MESSAGE      = "Les paramètres par defaut ont ete retab
 HENKAKU_RELOAD_CONFIG_MESSAGE        = "Le fichier config.txt de taiHEN a été rechargé avec succès."
 HENKAKU_UNSAFE_HOMEBREW_MESSAGE      = "Les applications non securisées peuvent endommager\votre console définitivement si elles sont mal\utilisées, mal configurées ou malintentionnées.\\Soyez prudent."
 
-# VitaShell settings
-VITASHELL_SETTINGS_MAIN              = "Paramètres principaux"
-VITASHELL_SETTINGS_LANGUAGE          = "Langue"
-VITASHELL_SETTINGS_THEME             = "Thème"
-VITASHELL_SETTINGS_USBDEVICE         = "Dispositif USB"
-VITASHELL_SETTINGS_SELECT_BUTTON     = "Bouton SELECT"
-VITASHELL_SETTINGS_NO_AUTO_UPDATE    = "Désactiver les mises à jour automatiques"
-VITASHELL_SETTINGS_RESTART_SHELL     = "Redémarrer VitaShell"
-VITASHELL_SETTINGS_POWER             = "Alimentation"
-VITASHELL_SETTINGS_REBOOT            = "Redémarrer"
-VITASHELL_SETTINGS_POWEROFF          = "Éteindre"
-VITASHELL_SETTINGS_STANDBY           = "Mettre en veille"
-VITASHELL_SETTINGS_USB_MEMORY_CARD   = "Carte mémoire"
-VITASHELL_SETTINGS_USB_GAME_CARD     = "Carte de jeu"
-VITASHELL_SETTINGS_USB_SD2VITA       = "sd2vita"
-VITASHELL_SETTINGS_USB_PSVSD         = "psvsd"
-VITASHELL_SETTINGS_SELECT_BUTTON_USB = "USB"
-VITASHELL_SETTINGS_SELECT_BUTTON_FTP = "FTP"
+# DualShellCommander settings
+DUALSHELLCOMMANDER_SETTINGS_MAIN              = "Paramètres principaux"
+DUALSHELLCOMMANDER_SETTINGS_LANGUAGE          = "Langue"
+DUALSHELLCOMMANDER_SETTINGS_THEME             = "Thème"
+DUALSHELLCOMMANDER_SETTINGS_USBDEVICE         = "Dispositif USB"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON     = "Bouton SELECT"
+DUALSHELLCOMMANDER_SETTINGS_NO_AUTO_UPDATE    = "Désactiver les mises à jour automatiques"
+DUALSHELLCOMMANDER_SETTINGS_RESTART_SHELL     = "Redémarrer DualShellCommander"
+DUALSHELLCOMMANDER_SETTINGS_POWER             = "Alimentation"
+DUALSHELLCOMMANDER_SETTINGS_REBOOT            = "Redémarrer"
+DUALSHELLCOMMANDER_SETTINGS_POWEROFF          = "Éteindre"
+DUALSHELLCOMMANDER_SETTINGS_STANDBY           = "Mettre en veille"
+DUALSHELLCOMMANDER_SETTINGS_USB_MEMORY_CARD   = "Carte mémoire"
+DUALSHELLCOMMANDER_SETTINGS_USB_GAME_CARD     = "Carte de jeu"
+DUALSHELLCOMMANDER_SETTINGS_USB_SD2VITA       = "sd2vita"
+DUALSHELLCOMMANDER_SETTINGS_USB_PSVSD         = "psvsd"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_USB = "USB"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_FTP = "FTP"
 
 # USB strings
 USB_CONNECTED                        = "USB connecté"
@@ -189,6 +189,6 @@ NO_SPACE_ERROR                       = "Il n'y a plus d'espace libre sur la cart
 EXTENDED_PERMISSIONS_REQUIRED        = "Cette fonctionnalité nécessite des autorisations étendues.\Veuillez activer 'Autoriser les applications non securisées' d'abord."
 WIFI_ERROR                           = "Vous devez activer le Wi-Fi pour utiliser cette fonction."
 FTP_SERVER                           = "Serveur FTP actif à l'adresse:\ftp://%s:%i\\Sélèctionnez 'OK' pour le garder en tâche de fond.\Sélèctionnez 'Annuler' pour l'arrêter."
-UPDATE_QUESTION                      = "VitaShell %s est disponible.\\Souhaitez-vous mettre à jour l'application?"
+UPDATE_QUESTION                      = "DualShellCommander %s est disponible.\\Souhaitez-vous mettre à jour l'application?"
 ARCHIVE_NAME                         = "Nom de l'archive"
 COMPRESSION_LEVEL                    = "Niveau de compression (0-9)"

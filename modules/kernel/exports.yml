@@ -1,4 +1,4 @@
-VitaShellKernel2:
+DualShellCommanderKernel2:
   attributes: 0
   version:
     major: 1
@@ -7,9 +7,11 @@ VitaShellKernel2:
     start: module_start
     stop: module_stop
   modules:
-    VitaShellKernel2Library:
+    DualShellCommanderKernel2Library:
       syscall: true
       functions:
         - shellKernelIsUx0Redirected
         - shellKernelRedirectUx0
         - shellKernelUnredirectUx0
+        - shellKernelMountById
+        - shellKernelGetRifVitaKey

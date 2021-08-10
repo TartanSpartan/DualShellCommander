@@ -1,3 +1,3 @@
-# VitaShell theme file
+# DualShellCommander theme file
 
 THEME_NAME = "Default"

@@ -1,4 +1,4 @@
-# VitaShell language file
+# DualShellCommander language file
 
 # General strings
 ERROR                                = "Fel 0x%08X."
@@ -59,6 +59,8 @@ DELETE                               = "Radera"
 RENAME                               = "Byt namn"
 NEW_FOLDER                           = "Ny mapp"
 PROPERTIES                           = "Egenskaper"
+SEND                                 = "Skicka"
+RECEIVE                              = "Ta Emot"
 MORE                                 = "Mer"
 COMPRESS                             = "Komprimera"
 INSTALL_ALL                          = "Installera alla"
@@ -101,6 +103,7 @@ REFRESHED                            = "Uppdaterade %d objekt."
 COPIED_FILE                          = "Kopierade %d fil."
 COPIED_FOLDER                        = "Kopierade %d mapp."
 COPIED_FILES_FOLDERS                 = "Kopierade %d filer/mappar."
+IMPORTED_LICENSES                    = "%d Importerade Licenser"
 
 # Dialog questions
 DELETE_FILE_QUESTION                 = "Är du säker på att du vill Radera den här filen?"
@@ -134,24 +137,24 @@ HENKAKU_RESTORE_DEFAULT_MESSAGE      = "Standardinställningar har återställts
 HENKAKU_RELOAD_CONFIG_MESSAGE        = "taiHEN config.txt har laddats om."
 HENKAKU_UNSAFE_HOMEBREW_MESSAGE      = "Osäkra homebrews kan skada din enhet\permanent om de används felaktigt, är felkonfigurerade\eller innehåller skadlig kod.\\Var försiktig vid installation av sådana."
 
-# VitaShell settings
-VITASHELL_SETTINGS_MAIN              = "Huvudinställningar"
-VITASHELL_SETTINGS_LANGUAGE          = "Språk"
-VITASHELL_SETTINGS_THEME             = "Tema"
-VITASHELL_SETTINGS_USBDEVICE         = "USB-enhet"
-VITASHELL_SETTINGS_SELECT_BUTTON     = "SELECT-knapp"
-VITASHELL_SETTINGS_NO_AUTO_UPDATE    = "Avaktivera automatisk uppdatering"
-VITASHELL_SETTINGS_RESTART_SHELL     = "Starta om VitaShell"
-VITASHELL_SETTINGS_POWER             = "Energi"
-VITASHELL_SETTINGS_REBOOT            = "Starta om"
-VITASHELL_SETTINGS_POWEROFF          = "Stäng av"
-VITASHELL_SETTINGS_STANDBY           = "Standby"
-VITASHELL_SETTINGS_USB_MEMORY_CARD   = "Minneskort"
-VITASHELL_SETTINGS_USB_GAME_CARD     = "Spelkort"
-VITASHELL_SETTINGS_USB_SD2VITA       = "sd2vita"
-VITASHELL_SETTINGS_USB_PSVSD         = "psvsd"
-VITASHELL_SETTINGS_SELECT_BUTTON_USB = "USB"
-VITASHELL_SETTINGS_SELECT_BUTTON_FTP = "FTP"
+# DualShellCommander settings
+DUALSHELLCOMMANDER_SETTINGS_MAIN              = "Huvudinställningar"
+DUALSHELLCOMMANDER_SETTINGS_LANGUAGE          = "Språk"
+DUALSHELLCOMMANDER_SETTINGS_THEME             = "Tema"
+DUALSHELLCOMMANDER_SETTINGS_USBDEVICE         = "USB-enhet"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON     = "SELECT-knapp"
+DUALSHELLCOMMANDER_SETTINGS_NO_AUTO_UPDATE    = "Avaktivera automatisk uppdatering"
+DUALSHELLCOMMANDER_SETTINGS_RESTART_SHELL     = "Starta om DualShellCommander"
+DUALSHELLCOMMANDER_SETTINGS_POWER             = "Energi"
+DUALSHELLCOMMANDER_SETTINGS_REBOOT            = "Starta om"
+DUALSHELLCOMMANDER_SETTINGS_POWEROFF          = "Stäng av"
+DUALSHELLCOMMANDER_SETTINGS_STANDBY           = "Standby"
+DUALSHELLCOMMANDER_SETTINGS_USB_MEMORY_CARD   = "Minneskort"
+DUALSHELLCOMMANDER_SETTINGS_USB_GAME_CARD     = "Spelkort"
+DUALSHELLCOMMANDER_SETTINGS_USB_SD2VITA       = "sd2vita"
+DUALSHELLCOMMANDER_SETTINGS_USB_PSVSD         = "psvsd"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_USB = "USB"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_FTP = "FTP"
 
 # USB strings
 USB_CONNECTED                        = "USB ansluten"
@@ -162,16 +165,31 @@ USB_NOT_CONNECTED                    = "Anslut det här systemet till en PC med 
 USB_CONNECTION_NOT_AVAILABLE         = "USB-anslutning är inte tillgänglig på den här enheten."
 USB_WAIT_ATTACH                      = "Sätt in ett USB-minne för att fortsätta.\Om ett redan satts in, ta ut\och sätt in det igen."
 
+# QR strings NOTE MAY HAVE TO COPY IN SPECIAL SWEEDISH CHARACTERS
+QR_SCANNING                          = "Skanna En QR kod?"
+QR_OPEN_WEBSITE                      = "Vill Du Öppna Denna Websida:\%s"
+QR_SHOW_CONTENTS                     = "QR Koden Innehåller Dem Här Filerna:\%s"
+QR_CONFIRM_INSTALL                   = "Vill Du Installera Detta/Dessa Program:\%s\Fil: %s\Storlek: %s"
+QR_CONFIRM_DOWNLOAD                  = "Vill Du Ladda ner Denna/Dessa Filer:\%s\Fil: %s\Storlek: %s"
+
+# Adhoc strings
+ADHOC_RECEIVE_SEARCHING_PSVITA       = "Söker Efter PS Vita."
+ADHOC_SELECT_PSVITA                  = "Välj PS Vita:"
+ADHOC_RECEIVE_QUESTION               = "Ta Emot %s?"
+ADHOC_CLIENT_DECLIED                 = "Klienten Nekade."
+
 # Others
 IMC0_MOUNTED                         = "imc0: monterad."
 SAFE_MODE                            = "SÄKERT LÄGE"
 UNSAFE_MODE                          = "OSÄKERT LÄGE"
-PLEASE_WAIT                          = "Vänta..."
+PLEASE_WAIT                          = "Vönta..."
 GAME_CARD_NOT_FOUND                  = "Sätt in ett spelkort."
+MICROSD_NOT_FOUND                    = "Sätt in ett micro sd kort."
 NO_SPACE_ERROR                       = "Det finns inte tillräckligt med utrymme på minneskortet.\Minst %s mer utrymme behövs."
 EXTENDED_PERMISSIONS_REQUIRED        = "Den här funktionen kräver utökade behörighet.\Aktivera 'Tillåt osäkra homebrews' först."
 WIFI_ERROR                           = "Du måste använda Wi-Fi för att göra det här."
 FTP_SERVER                           = "FTP-server körs nu på\ftp://%s:%i\\Tryck 'OK' för att fortsätta köra i bakgrunden.\Tryck 'Avbryt' för att koppla från."
-UPDATE_QUESTION                      = "VitaShell %s är nu tillgänglig.\\Vill du uppdatera applikationen?"
+UPDATE_QUESTION                      = "DualShellCommander %s är nu tillgänglig.\\Vill du uppdatera applikationen?"
 ARCHIVE_NAME                         = "Arkivnamn"
 COMPRESSION_LEVEL                    = "Komprimeringsgrad (0–9)"
+ENTER_PASSWORD                       = "Ange Lösernord"

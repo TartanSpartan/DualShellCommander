@@ -1,4 +1,4 @@
-# VitaShell language file
+# DualShellCommander language file
 
 # General strings
 ERROR                                = "錯誤 0x%08X."
@@ -140,24 +140,24 @@ HENKAKU_RESTORE_DEFAULT_MESSAGE      = "已成功還原為預設設定"
 HENKAKU_RELOAD_CONFIG_MESSAGE        = "已成功重新載入 taiHEN config.txt "
 HENKAKU_UNSAFE_HOMEBREW_MESSAGE      = "如果錯誤地使用或設定不安全的自製程式，\或是程式本身含有惡意程式碼，你的設備有可能會被永久損毀。\請慎重安裝。"
 
-# VitaShell settings
-VITASHELL_SETTINGS_MAIN              = "主要設定"
-VITASHELL_SETTINGS_LANGUAGE          = "語言"
-VITASHELL_SETTINGS_THEME             = "主題"
-VITASHELL_SETTINGS_USBDEVICE         = "USB 設備"
-VITASHELL_SETTINGS_SELECT_BUTTON     = "SELECT 按鈕"
-VITASHELL_SETTINGS_NO_AUTO_UPDATE    = "停用自動更新"
-VITASHELL_SETTINGS_RESTART_SHELL     = "重新啓動 VitaShell"
-VITASHELL_SETTINGS_POWER             = "電源"
-VITASHELL_SETTINGS_REBOOT            = "重新啓動"
-VITASHELL_SETTINGS_POWEROFF          = "關機"
-VITASHELL_SETTINGS_STANDBY           = "待機"
-VITASHELL_SETTINGS_USB_MEMORY_CARD   = "記憶卡"
-VITASHELL_SETTINGS_USB_GAME_CARD     = "遊戲卡"
-VITASHELL_SETTINGS_USB_SD2VITA       = "sd2vita"
-VITASHELL_SETTINGS_USB_PSVSD         = "psvsd"
-VITASHELL_SETTINGS_SELECT_BUTTON_USB = "USB"
-VITASHELL_SETTINGS_SELECT_BUTTON_FTP = "FTP"
+# DualShellCommander settings
+DUALSHELLCOMMANDER_SETTINGS_MAIN              = "主要設定"
+DUALSHELLCOMMANDER_SETTINGS_LANGUAGE          = "語言"
+DUALSHELLCOMMANDER_SETTINGS_THEME             = "主題"
+DUALSHELLCOMMANDER_SETTINGS_USBDEVICE         = "USB 設備"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON     = "SELECT 按鈕"
+DUALSHELLCOMMANDER_SETTINGS_NO_AUTO_UPDATE    = "停用自動更新"
+DUALSHELLCOMMANDER_SETTINGS_RESTART_SHELL     = "重新啓動 DUALSHELLCOMMANDER"
+DUALSHELLCOMMANDER_SETTINGS_POWER             = "電源"
+DUALSHELLCOMMANDER_SETTINGS_REBOOT            = "重新啓動"
+DUALSHELLCOMMANDER_SETTINGS_POWEROFF          = "關機"
+DUALSHELLCOMMANDER_SETTINGS_STANDBY           = "待機"
+DUALSHELLCOMMANDER_SETTINGS_USB_MEMORY_CARD   = "記憶卡"
+DUALSHELLCOMMANDER_SETTINGS_USB_GAME_CARD     = "遊戲卡"
+DUALSHELLCOMMANDER_SETTINGS_USB_SD2VITA       = "sd2vita"
+DUALSHELLCOMMANDER_SETTINGS_USB_PSVSD         = "psvsd"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_USB = "USB"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_FTP = "FTP"
 
 # USB strings
 USB_CONNECTED                        = "USB 已連接。"
@@ -187,6 +187,6 @@ NO_SPACE_ERROR                       = "記憶卡上沒有充足的可用空間�
 EXTENDED_PERMISSIONS_REQUIRED        = "這個功能需要額外權限\請先開啓 '啓用不安全的自製程式' 這個選項。"
 WIFI_ERROR                           = "你必須開啓無線網路以使用該功能。"
 FTP_SERVER                           = "FTP 伺服器正在執行於\ftp://%s:%i\\按 '確定' 將其保留於背景。\按 '取消' 則中斷連線。"
-UPDATE_QUESTION                      = "發現可用的新版本：\VitaShell %s\\是否立刻升級程式?"
+UPDATE_QUESTION                      = "發現可用的新版本：\DualShellCommander %s\\是否立刻升級程式?"
 ARCHIVE_NAME                         = "壓縮包名稱"
 COMPRESSION_LEVEL                    = "壓縮等級 (0-9)"

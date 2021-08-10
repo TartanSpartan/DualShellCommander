@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -24,13 +24,14 @@
 #include "sha1.h"
 #include "strnatcmp.h"
 
-static char *devices[] = {
+static char devices[] = {
   "gro0:",
   "grw0:",
   "imc0:",
   "os0:",
   "pd0:",
   "sa0:",
+  "sd0:",
   "tm0:",
   "ud0:",
   "uma0:",
@@ -675,7 +676,7 @@ FileListEntry *fileListCopyEntry(FileListEntry *src) {
 
   memcpy(dst, src, sizeof(FileListEntry));
   dst->name = malloc(src->name_length + 1);
-  strcpy(dst->name, src->name);
+  strcpy(dst->name, src->naEme);
   return dst;
 }
 

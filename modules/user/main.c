@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 #include <string.h>
 #include <stdarg.h>
 
-#include <vitashell_kernel.h>
+#include <dualshellcommander_kernel.h>
 
 int shellUserIsUx0Redirected() {
   return shellKernelIsUx0Redirected();
@@ -36,6 +36,14 @@ int shellUserRedirectUx0() {
 
 int shellUserUnredirectUx0() {
   return shellKernelUnredirectUx0();
+}
+
+int shellUserMountById(ShellMountIdArgs *args) {
+  return shellKernelMountById(args);  
+}
+
+int shellUserGetRifVitaKey(const void *license_buf, void *klicensee){
+  return shellKernelGetRifVitaKey(license_buf, klicensee);  
 }
 
 void _start() __attribute__ ((weak, alias("module_start")));

@@ -1,4 +1,4 @@
-# VitaShell language file
+# DualShellCommander language file
 
 # General strings
 ERROR                                = "エラー 0x%08X"
@@ -144,24 +144,24 @@ HENKAKU_RESTORE_DEFAULT_MESSAGE      = "既定の設定が正常に復元され�
 HENKAKU_RELOAD_CONFIG_MESSAGE        = "taiHENのconfig.txtが正常に再読込されました"
 HENKAKU_UNSAFE_HOMEBREW_MESSAGE      = "悪意のある改変が含まれていたり、誤って設定・使用された場合、\UNSAFEのHomebrewは端末に永久的なダメージを与える可能性があります。\\インストールの際には注意してください。"
 
-# VitaShell settings
-VITASHELL_SETTINGS_MAIN              = "主な設定"
-VITASHELL_SETTINGS_LANGUAGE          = "言語"
-VITASHELL_SETTINGS_THEME             = "テーマ"
-VITASHELL_SETTINGS_USBDEVICE         = "USB端末"
-VITASHELL_SETTINGS_SELECT_BUTTON     = "SELECTボタン"
-VITASHELL_SETTINGS_NO_AUTO_UPDATE    = "自動更新を無効"
-VITASHELL_SETTINGS_RESTART_SHELL     = "VitaShellを再起動"
-VITASHELL_SETTINGS_POWER             = "電源"
-VITASHELL_SETTINGS_REBOOT            = "再起動"
-VITASHELL_SETTINGS_POWEROFF          = "電源を切る"
-VITASHELL_SETTINGS_STANDBY           = "スタンバイ"
-VITASHELL_SETTINGS_USB_MEMORY_CARD   = "メモリーカード"
-VITASHELL_SETTINGS_USB_GAME_CARD     = "ゲームカード"
-VITASHELL_SETTINGS_USB_SD2VITA       = "sd2vita"
-VITASHELL_SETTINGS_USB_PSVSD         = "psvsd"
-VITASHELL_SETTINGS_SELECT_BUTTON_USB = "USB"
-VITASHELL_SETTINGS_SELECT_BUTTON_FTP = "FTP"
+# DualShellCommander settings
+DUALSHELLCOMMANDER_SETTINGS_MAIN              = "主な設定"
+DUALSHELLCOMMANDER_SETTINGS_LANGUAGE          = "言語"
+DUALSHELLCOMMANDER_SETTINGS_THEME             = "テーマ"
+DUALSHELLCOMMANDER_SETTINGS_USBDEVICE         = "USB端末"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON     = "SELECTボタン"
+DUALSHELLCOMMANDER_SETTINGS_NO_AUTO_UPDATE    = "自動更新を無効"
+DUALSHELLCOMMANDER_SETTINGS_RESTART_SHELL     = "DualShellCommanderを再起動"
+DUALSHELLCOMMANDER_SETTINGS_POWER             = "電源"
+DUALSHELLCOMMANDER_SETTINGS_REBOOT            = "再起動"
+DUALSHELLCOMMANDER_SETTINGS_POWEROFF          = "電源を切る"
+DUALSHELLCOMMANDER_SETTINGS_STANDBY           = "スタンバイ"
+DUALSHELLCOMMANDER_SETTINGS_USB_MEMORY_CARD   = "メモリーカード"
+DUALSHELLCOMMANDER_SETTINGS_USB_GAME_CARD     = "ゲームカード"
+DUALSHELLCOMMANDER_SETTINGS_USB_SD2VITA       = "sd2vita"
+DUALSHELLCOMMANDER_SETTINGS_USB_PSVSD         = "psvsd"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_USB = "USB"
+DUALSHELLCOMMANDER_SETTINGS_SELECT_BUTTON_FTP = "FTP"
 
 # USB strings
 USB_CONNECTED                        = "USBで接続中"
@@ -197,7 +197,7 @@ NO_SPACE_ERROR                       = "メモリーカードに充分な空き�
 EXTENDED_PERMISSIONS_REQUIRED        = "この機能には、拡張権限が必要です。\まず、UNSAFEのHomebrewを有効にしてください。"
 WIFI_ERROR                           = "Wi-Fiを有効にする必要があります"
 FTP_SERVER                           = "FTPサーバーは、現在\ftp://%s:%i\で動作しています。\\「OK」を選択するとバックグラウンドで動作します。\「キャンセル」を選択すると接続を解除します。"
-UPDATE_QUESTION                      = "VitaShell %sが利用可能です。\\VitaShellを更新しますか？"
+UPDATE_QUESTION                      = "DualShellCommander %sが利用可能です。\\DualShellCommanderを更新しますか？"
 ARCHIVE_NAME                         = "アーカイブ名"
 COMPRESSION_LEVEL                    = "圧縮率(0-9)"
 ENTER_PASSWORD                       = "パスワードを入力"

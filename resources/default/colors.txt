@@ -1,4 +1,4 @@
-# VitaShell colors file
+# DualShellCommander colors file
 
 # Shell colors
 BACKGROUND_COLOR             = 0xFF000000    # Black

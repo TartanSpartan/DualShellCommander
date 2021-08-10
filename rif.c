@@ -1,5 +1,5 @@
 /*
-  VitaShell - RIF and license.db handling
+  DualShellCommander - RIF and license.db handling
   Copyright (C) 2017 VitaSmith
 
   This program is free software: you can redistribute it and/or modify

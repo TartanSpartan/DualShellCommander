@@ -1,6 +1,6 @@
 /*
-  VitaShell
-  Copyright (C) 2015-2018, TheFloW
+  DualShellCommander
+  Copyright (C) 2018, TartanSpartan
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -387,7 +387,7 @@ int debugPrintf(const char *text, ...) {
   vsnprintf(string, sizeof(string), text, list);
   va_end(list);
 
-  SceUID fd = sceIoOpen("ux0:data/vitashell_log.txt", SCE_O_WRONLY | SCE_O_CREAT | SCE_O_APPEND, 0777);
+  SceUID fd = sceIoOpen("ux0:data/dualshellcommander_log.txt", SCE_O_WRONLY | SCE_O_CREAT | SCE_O_APPEND, 0777);
   if (fd >= 0) {
     sceIoWrite(fd, string, strlen(string));
     sceIoClose(fd);
@@ -400,11 +400,7 @@ int launchAppByUriExit(const char *titleid) {
   char uri[32];
   snprintf(uri, sizeof(uri), "psgm:play?titleid=%s", titleid);
 
-  sceKernelDelayThread(10000);
   sceAppMgrLaunchAppByUri(0xFFFFF, uri);
-  sceKernelDelayThread(10000);
-  sceAppMgrLaunchAppByUri(0xFFFFF, uri);
-
   sceKernelExitProcess(0);
 
   return 0;
