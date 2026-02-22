@@ -21,11 +21,65 @@
 #include "file.h"
 #include "utils.h"
 
-int mountUsbUx0() {
+
+int mountGamecardUx0() {
   // Destroy other apps
   sceAppMgrDestroyOtherApp();
 
+  // Copy DualShellCommander
+  copyPath("ux0:app/DUALSHELLCOMMANDER", "ur0:temp/app", NULL);
+  copyPath("ux0:appmeta/DUALSHELLCOMMANDER", "ur0:temp/appmeta", NULL);
+  copyPath("ux0:license/app/DUALSHELLCOMMANDER", "ur0:temp/license", NULL);
+
+  // Redirect ux0: to gamecard
+  shellUserRedirectUx0("sdstor0:gcd-lp-ign-entire", "sdstor0:gcd-lp-ign-entire");
+
+  // Remount Memory Card
+  remount(0x800);
+
   // Create dirs
+  sceIoMkdir("ux0:app", 0006);
+  sceIoMkdir("ux0:appmeta", 0006);
+  sceIoMkdir("ux0:license", 0006);
+  sceIoMkdir("ux0:license/app", 0006);
+  sceIoMkdir("ux0:app/DUALSHELLCOMMANDER", 0006);
+  sceIoMkdir("ux0:appmeta/DUALSHELLCOMMANDER", 0006);
+  sceIoMkdir("ux0:license/app/DUALSHELLCOMMANDER", 0006);
+
+  // Create important dirs
+  sceIoMkdir("ux0:data", 0777);
+  sceIoMkdir("ux0:temp", 0006);
+
+  // Remove lastdir.txt file
+  sceIoRemove("ux0:DualShellCommander/internal/lastdir.txt");
+
+  // Copy DualShellCommander
+  copyPath("ur0:temp/app", "ux0:app/DUALSHELLCOMMANDER", NULL);
+  copyPath("ur0:temp/appmeta", "ux0:appmeta/DUALSHELLCOMMANDER", NULL);
+  copyPath("ur0:temp/license", "ux0:license/app/DUALSHELLCOMMANDER", NULL);
+
+  return 0;
+}
+
+int umountGamecardUx0() {
+  // Destroy other apps
+  sceAppMgrDestroyOtherApp();
+
+  // Restore ux0: patch
+  if (checkFileExist("sdstor0:xmc-lp-ign-userext"))
+    shellUserRedirectUx0("sdstor0:xmc-lp-ign-userext", "sdstor0:xmc-lp-ign-userext");
+  else
+    shellUserRedirectUx0("sdstor0:int-lp-ign-userext", "sdstor0:int-lp-ign-userext");
+
+  // Remount Memory Card
+  remount(0x800);
+
+  return 0;
+}
+
+int mountUsbUx0() {
+  // Destroy other apps
+  sceAppMgrDestroyOtherApp();// Create dirs
   sceIoMkdir("uma0:app", 0006);
   sceIoMkdir("uma0:appmeta", 0006);
   sceIoMkdir("uma0:license", 0006);
@@ -64,7 +118,7 @@ int mountUsbUx0() {
   sceIoRemove("uma0:DualShellCommander/internal/lastdir.txt");
 
   // Redirect ux0: to uma0:
-  shellUserRedirectUx0();
+  shellUserRedirectUx0("sdstor0:uma-pp-act-a", "sdstor0:uma-lp-act-entire");
 
   // Umount uma0:
   vshIoUmount(0xF00, 0, 0, 0);
@@ -80,7 +134,10 @@ int umountUsbUx0() {
   sceAppMgrDestroyOtherApp();
 
   // Restore ux0: patch
-  shellUserUnredirectUx0();
+  if (checkFileExist("sdstor0:xmc-lp-ign-userext"))
+    shellUserRedirectUx0("sdstor0:xmc-lp-ign-userext", "sdstor0:xmc-lp-ign-userext");
+  else
+    shellUserRedirectUx0("sdstor0:int-lp-ign-userext", "sdstor0:int-lp-ign-userext");
 
   // Remount Memory Card
   remount(0x800);

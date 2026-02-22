@@ -139,6 +139,7 @@ target_link_libraries(DualShellCommander
   archive
   bz2
   lzma
+  zstd
   crypto
   expat
   taihen_stub

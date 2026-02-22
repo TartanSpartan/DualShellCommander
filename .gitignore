@@ -8,3 +8,6 @@
 *.sfo
 *.velf
 build
+*.jpg
+*.png
+*.bak

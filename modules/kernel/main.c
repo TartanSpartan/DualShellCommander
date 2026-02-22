@@ -59,11 +59,11 @@ typedef struct {
   int unk7;
 } SceIoMountPoint;
 
-static SceIoDevice uma_ux0_dev = { "ux0:", "exfatux0", "sdstor0:uma-pp-act-a", "sdstor0:uma-lp-act-entire", MOUNT_POINT_ID };
+static char ux0_blkdev[64], ux0_blkdev2[64];
+
+static SceIoDevice ux0_dev = { "ux0:", "exfatux0", ux0_blkdev, ux0_blkdev2, MOUNT_POINT_ID };
 
 static SceIoMountPoint *(* sceIoFindMountPoint)(int id) = NULL;
-
-static SceIoDevice *ori_dev = NULL, *ori_dev2 = NULL;
 
 static SceUID hookid = -1;
 
@@ -79,17 +79,22 @@ static int ksceSblAimgrIsDolcePatched() {
   return 1;
 }
 
-int shellKernelIsUx0Redirected() {
+int shellKernelIsUx0Redirected(const char *blkdev, const char *blkdev2) {
+  char k_blkdev[64], k_blkdev2[64];
+
   uint32_t state;
   ENTER_SYSCALL(state);
 
   SceIoMountPoint *mount = sceIoFindMountPoint(MOUNT_POINT_ID);
   if (!mount) {
     EXIT_SYSCALL(state);
-    return -1;
+    return 0;
   }
 
-  if (mount->dev == &uma_ux0_dev && mount->dev2 == &uma_ux0_dev) {
+  ksceKernelStrncpyUserToKernel(k_blkdev, (uintptr_t)blkdev, sizeof(k_blkdev)-1);
+  ksceKernelStrncpyUserToKernel(k_blkdev2, (uintptr_t)blkdev2, sizeof(k_blkdev2)-1);
+
+  if (mount && mount->dev && mount->dev->blkdev && strcmp(mount->dev->blkdev, k_blkdev) == 0) {
     EXIT_SYSCALL(state);
     return 1;
   }
@@ -98,7 +103,7 @@ int shellKernelIsUx0Redirected() {
   return 0;
 }
 
-int shellKernelRedirectUx0() {
+int shellKernelRedirectUx0(const char *blkdev, const char *blkdev2) {
   uint32_t state;
   ENTER_SYSCALL(state);
 
@@ -108,35 +113,11 @@ int shellKernelRedirectUx0() {
     return -1;
   }
 
-  if (mount->dev != &uma_ux0_dev && mount->dev2 != &uma_ux0_dev) {
-    ori_dev = mount->dev;
-    ori_dev2 = mount->dev2;
-  }
+  ksceKernelStrncpyUserToKernel(ux0_blkdev, (uintptr_t)blkdev, sizeof(ux0_blkdev)-1);
+  ksceKernelStrncpyUserToKernel(ux0_blkdev2, (uintptr_t)blkdev2, sizeof(ux0_blkdev2)-1);
 
-  mount->dev = &uma_ux0_dev;
-  mount->dev2 = &uma_ux0_dev;
-
-  EXIT_SYSCALL(state);
-  return 0;
-}
-
-int shellKernelUnredirectUx0() {
-  uint32_t state;
-  ENTER_SYSCALL(state);
-
-  SceIoMountPoint *mount = sceIoFindMountPoint(MOUNT_POINT_ID);
-  if (!mount) {
-    EXIT_SYSCALL(state);
-    return -1;
-  }
-
-  if (ori_dev && ori_dev2) {
-    mount->dev = ori_dev;
-    mount->dev2 = ori_dev2;
-
-    ori_dev = NULL;
-    ori_dev2 = NULL;
-  }
+  mount->dev = &ux0_dev;
+  mount->dev2 = &ux0_dev;
 
   EXIT_SYSCALL(state);
   return 0;

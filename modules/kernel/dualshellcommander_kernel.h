@@ -28,10 +28,9 @@ typedef struct {
   char *mount_point;
 } ShellMountIdArgs;
 
-int shellKernelIsUx0Redirected();
-int shellKernelRedirectUx0();
-int shellKernelUnredirectUx0();
+int shellKernelIsUx0Redirected(const char *blkdev, const char *blkdev2);
+int shellKernelRedirectUx0(const char *blkdev, const char *blkdev2);
 int shellKernelMountById(ShellMountIdArgs *args);
-int shellKernelGetRifVitaKey(const void *license_bufm void *klicensee);
+int shellKernelGetRifVitaKey(const void *license_buf, void *klicensee);
 
 #endif

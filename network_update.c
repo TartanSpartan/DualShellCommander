@@ -77,7 +77,7 @@ int network_update_thread(SceSize args, void *argp) {
         }
 
         // Yes
-        return downloadFileProcess(url, DUALSHELLCOMMANDER_UPDATE_FILE, DIALOG_STEP_DOWNLOADED);
+        return downloadFileProcess(BASE_ADDRESS "/DualShellCommander.vpk", DUALSHELLCOMMANDER_UPDATE_FILE, DIALOG_STEP_DOWNLOADED);
       }
     }
   }

@@ -14,4 +14,4 @@ DualShellCommanderUser:
         - shellUserRedirectUx0
         - shellUserUnredirectUx0
         - shellUserMountById
-        - shelUserGetRifVitaKey
+        - shellUserGetRifVitaKey

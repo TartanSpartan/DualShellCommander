@@ -21,9 +21,8 @@
 
 #include <dualshellcommander_kernel.h>
 
-int shellUserIsUx0Redirected();
-int shellUserRedirectUx0();
-int shellUserUnredirectUx0();
+int shellUserIsUx0Redirected(const char *blkdev, const char *blkdev2);
+int shellUserRedirectUx0(const char *blkdev, const char *blkdev2);
 int shellUserMountById(ShellMountIdArgs *args);
 int shellUserGetRifVitaKey(const void *license_buf, void *klicensee);
 

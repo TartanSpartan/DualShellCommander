@@ -348,18 +348,19 @@ void convertLocalTimeToUtc(SceDateTime *time_utc, SceDateTime *time_local) {
 void getDateString(char string[24], int date_format, SceDateTime *time) {
   SceDateTime time_local;
   convertUtcToLocalTime(&time_local, time);
+  int short_year = time_local.year % 100;
 
   switch (date_format) {
     case SCE_SYSTEM_PARAM_DATE_FORMAT_YYYYMMDD:
-      snprintf(string, 24, "%04d/%02d/%02d", time_local.year, time_local.month, time_local.day);
+      snprintf(string, 24, "%02d/%02d/%02d", short_year, time_local.month, time_local.day);
       break;
 
     case SCE_SYSTEM_PARAM_DATE_FORMAT_DDMMYYYY:
-      snprintf(string, 24, "%02d/%02d/%04d", time_local.day, time_local.month, time_local.year);
+      snprintf(string, 24, "%02d/%02d/%02d", time_local.day, time_local.month, short_year);
       break;
 
     case SCE_SYSTEM_PARAM_DATE_FORMAT_MMDDYYYY:
-      snprintf(string, 24, "%02d/%02d/%04d", time_local.month, time_local.day, time_local.year);
+      snprintf(string, 24, "%02d/%02d/%02d", time_local.month, time_local.day, short_year);
       break;
   }
 }
@@ -368,15 +369,9 @@ void getTimeString(char string[16], int time_format, SceDateTime *time) {
   SceDateTime time_local;
   convertUtcToLocalTime(&time_local, time);
 
-  switch(time_format) {
-    case SCE_SYSTEM_PARAM_TIME_FORMAT_12HR:
-      snprintf(string, 16, "%02d:%02d %s", (time_local.hour > 12) ? (time_local.hour - 12) : ((time_local.hour == 0) ? 12 : time_local.hour), time_local.minute, time_local.hour >= 12 ? "PM" : "AM");
-      break;
-
-    case SCE_SYSTEM_PARAM_TIME_FORMAT_24HR:
-      snprintf(string, 16, "%02d:%02d", time_local.hour, time_local.minute);
-      break;
-  }
+  // Always use 24-hour format for compact display
+  (void)time_format;
+  snprintf(string, 16, "%02d:%02d", time_local.hour, time_local.minute);
 }
 
 int debugPrintf(const char *text, ...) {

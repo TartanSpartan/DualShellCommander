@@ -24,18 +24,14 @@
 #include <string.h>
 #include <stdarg.h>
 
-#include <dualshellcommander_kernel.h>
+#include "../kernel/dualshellcommander_kernel.h"
 
-int shellUserIsUx0Redirected() {
-  return shellKernelIsUx0Redirected();
+int shellUserIsUx0Redirected(const char *blkdev, const char *blkdev2) {
+  return shellKernelIsUx0Redirected(blkdev, blkdev2);
 }
 
-int shellUserRedirectUx0() {
-  return shellKernelRedirectUx0();
-}
-
-int shellUserUnredirectUx0() {
-  return shellKernelUnredirectUx0();
+int shellUserRedirectUx0(const char *blkdev, const char *blkdev2) {
+  return shellKernelRedirectUx0(blkdev, blkdev2);
 }
 
 int shellUserMountById(ShellMountIdArgs *args) {
@@ -44,6 +40,16 @@ int shellUserMountById(ShellMountIdArgs *args) {
 
 int shellUserGetRifVitaKey(const void *license_buf, void *klicensee){
   return shellKernelGetRifVitaKey(license_buf, klicensee);  
+}
+
+/*
+ * Compatibility stub: older versions exported an unredirect function with no
+ * parameters. The kernel-side API was refactored to parameterized functions,
+ * so provide a no-op user stub to satisfy legacy callers/exports during
+ * packaging. Keep this minimal and local to avoid changing public behavior.
+ */
+int shellUserUnredirectUx0(void) {
+  return 0;
 }
 
 void _start() __attribute__ ((weak, alias("module_start")));

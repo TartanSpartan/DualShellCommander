@@ -24,7 +24,7 @@
 #include "sha1.h"
 #include "strnatcmp.h"
 
-static char devices[] = {
+static char *devices[] = {
   "gro0:",
   "grw0:",
   "imc0:",
@@ -676,7 +676,7 @@ FileListEntry *fileListCopyEntry(FileListEntry *src) {
 
   memcpy(dst, src, sizeof(FileListEntry));
   dst->name = malloc(src->name_length + 1);
-  strcpy(dst->name, src->naEme);
+  strcpy(dst->name, src->name);
   return dst;
 }
 
